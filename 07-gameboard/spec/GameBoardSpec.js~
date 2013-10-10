@@ -94,7 +94,7 @@ describe("Clase GameBoard", function(){
 	miboard.remove(o2);
 	expect(miboard.removed[0]).toEqual(0);
 	expect(miboard.removed[1]).toEqual(5);
-	miboard.finalizeRemoved();
+	miboard.FinalizeRemoved();
 	expect(miboard.objects[0]).toEqual(undefined);
 	
 	});
