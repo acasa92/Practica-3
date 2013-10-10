@@ -98,27 +98,27 @@ describe("Clase GameBoard", function(){
 	expect(miboard.objects[0]).toEqual(undefined);
 	
 	});
-  /*  it("overlap", function(){
+    it("overlap", function(){
 	
-	spyOn(GameBoard, "overlap");
-	var o1{
-	    x=2;
-	    y=4;
-	    w=4;
-	    h=1;
-	}
-	var o2{
-	    x=2;
-	    y=4;
-	    w=4;
-	    h=1;
-	}
+	var miboard = new GameBoard();
+	var o1={
+	    x:2,
+	    y:4,
+	    w:8,
+	    h:9
+	};
+	var o2={
+	    x:2,
+	    y:4,
+	    w:8,
+	    h:9
+	};
 	miboard.add(o1);
 	miboard.add(o2);
 	
- 	expect(miboard.overlap(o1,o2));*/
+ 	expect(miboard.overlap(o1,o2)).toEqual(true);
   	
-
+	});
 
 
 
