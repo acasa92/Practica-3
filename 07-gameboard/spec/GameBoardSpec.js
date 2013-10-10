@@ -75,23 +75,23 @@ describe("Clase GameBoard", function(){
     it("add", function(){
 	
 	var miboard = new GameBoard();
-	var o1=0;
-	var o2=5;
-	miboard.add(o1);
-	miboard.add(o2);
+	var obj1=0;
+	var obj2=5;
+	miboard.add(obj1);
+	miboard.add(obj2);
 	expect(miboard.objects[0]).toEqual(0);
 	expect(miboard.objects[1]).toEqual(5);
 	});
     it("remove&delete", function(){
 	
 	var miboard = new GameBoard();
-	var o1=0;
-	var o2=5;
-	miboard.add(o1);
-	miboard.add(o2);
+	var obj1=0;
+	var obj2=5;
+	miboard.add(obj1);
+	miboard.add(obj2);
 	miboard.resetRemoved();
-	miboard.remove(o1);
-	miboard.remove(o2);
+	miboard.remove(obj1);
+	miboard.remove(obj2);
 	expect(miboard.removed[0]).toEqual(0);
 	expect(miboard.removed[1]).toEqual(5);
 	miboard.finalizeRemoved();
@@ -101,25 +101,84 @@ describe("Clase GameBoard", function(){
     it("overlap", function(){
 	
 	var miboard = new GameBoard();
-	var o1={
+	var obj1={
 	    x:2,
 	    y:4,
 	    w:8,
 	    h:9
 	};
-	var o2={
+	var obj2={
 	    x:2,
 	    y:4,
 	    w:8,
 	    h:9
 	};
-	miboard.add(o1);
-	miboard.add(o2);
+	miboard.add(obj1);
+	miboard.add(obj2);
 	
- 	expect(miboard.overlap(o1,o2)).toEqual(true);
+ 	expect(miboard.overlap(obj1,obj2)).toEqual(true);
   	
 	});
+    it("draw", function(){
+	
 
+	var miboard = new GameBoard();
+	spyOn(miboard, "draw");
+	var obj1={
+	    x:2,
+	    y:4,
+	    w:8,
+	    h:9
+	};
+	miboard.add(obj1);
+	miboard.draw(ctx);
+	waits(200);
+	runs(function(){
+ 		expect(miboard.draw).toHaveBeenCalled();
+	});
+
+    });
+
+    it("step", function(){
+	
+
+	var miboard = new GameBoard();
+	spyOn(miboard, "step");
+	var obj1={
+	    x:2,
+	    y:4,
+	    w:8,
+	    h:9
+	};
+	miboard.add(obj1);
+	miboard.step(ctx);
+	waits(200);
+	runs(function(){
+ 		expect(miboard.step).toHaveBeenCalled();
+	});
+
+    });
+
+   /* it("step", function(){
+	spyOn(ctx, "fillText");
+
+	foo = {
+	    callback: function() {
+	    }
+	};
+	spyOn(foo, "callback");
+
+	var titulo = "titulo";
+	var subtitulo = "subtitulo";
+	var ts1 = new TitleScreen(titulo, subtitulo, foo.callback);
+	Game = {keys: {'fire': false}};
+ 	ts1.step(); 
+	Game = {keys: {'fire': true}};
+ 	ts1.step(); 
+	
+	expect(foo.callback).toHaveBeenCalled();
+
+    });*/
 
 
 
