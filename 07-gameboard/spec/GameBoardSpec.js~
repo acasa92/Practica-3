@@ -139,6 +139,25 @@ describe("Clase GameBoard", function(){
 
     });
 
+    it("step", function(){
+	
+
+	var miboard = new GameBoard();
+	spyOn(miboard, "step");
+	var obj1={
+	    x:2,
+	    y:4,
+	    w:8,
+	    h:9
+	};
+	miboard.add(obj1);
+	miboard.step(ctx);
+	waits(200);
+	runs(function(){
+ 		expect(miboard.step).toHaveBeenCalled();
+	});
+
+    });
 
    /* it("step", function(){
 	spyOn(ctx, "fillText");
