@@ -159,27 +159,7 @@ describe("Clase GameBoard", function(){
 
     });
 
-   /* it("step", function(){
-	spyOn(ctx, "fillText");
-
-	foo = {
-	    callback: function() {
-	    }
-	};
-	spyOn(foo, "callback");
-
-	var titulo = "titulo";
-	var subtitulo = "subtitulo";
-	var ts1 = new TitleScreen(titulo, subtitulo, foo.callback);
-	Game = {keys: {'fire': false}};
- 	ts1.step(); 
-	Game = {keys: {'fire': true}};
- 	ts1.step(); 
-	
-	expect(foo.callback).toHaveBeenCalled();
-
-    });*/
-
+   
 
 
 
