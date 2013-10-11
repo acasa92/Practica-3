@@ -211,7 +211,6 @@ var GameBoard = function() {
 	var it=function(obj){
 		obj[funcName].apply(obj,args)
 	};
-	_(this.objects).forEach(it);
 	/*for(var i=0, len=this.objects.length; i<len;i++) {
 	    var obj = this.objects[i];
 	    obj[funcName].apply(obj,args)
