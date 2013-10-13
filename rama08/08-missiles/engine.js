@@ -39,12 +39,11 @@ var Game = new function() {
 	$(window).keydown(function(event){
 	    if (KEY_CODES[event.which]) {
 		Game.keys[KEY_CODES[event.which]] = true;
-		return true;
+		return false;
 	    }
 	});
 	
 	$(window).keyup(function(event){
-	    
 	    if (KEY_CODES[event.which]) {
 		Game.keys[KEY_CODES[event.which]] = false;
 		return false;
@@ -53,7 +52,7 @@ var Game = new function() {
 	
     }
 
- 
+
     // Bucle del juego
     var boards = [];
 
@@ -209,23 +208,19 @@ var GameBoard = function() {
     this.iterate = function(funcName) {
 	// Convertimos en un array args (1..)
 	var args = Array.prototype.slice.call(arguments,1);
-	var it=function(obj){
-		obj[funcName].apply(obj,args)
-	};
-	_(this.objects).forEach(it);
-	/*for(var i=0, len=this.objects.length; i<len;i++) {
+
+	for(var i=0, len=this.objects.length; i<len;i++) {
 	    var obj = this.objects[i];
 	    obj[funcName].apply(obj,args)
-	}*/
+	}
     };
 
     // Devuelve el primer objeto de objects para el que func es true
     this.detect = function(func) {
-	/*for(var i = 0,val=null, len=this.objects.length; i < len; i++) {
+	for(var i = 0,val=null, len=this.objects.length; i < len; i++) {
 	    if(func.call(this.objects[i])) return this.objects[i];
 	}
-	return false;*/
-	var primer= _.find(this.objects, function(func){return func});
+	return false;
     };
 
     // Cuando Game.loop() llame a step(), hay que llamar al método

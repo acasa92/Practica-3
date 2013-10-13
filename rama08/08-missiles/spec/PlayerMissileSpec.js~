@@ -28,7 +28,7 @@
 
 */
 
-/*describe("Clase PlayerMissile", function(){
+describe("Clase PlayerMissile", function(){
 
 
     var canvas, ctx;
